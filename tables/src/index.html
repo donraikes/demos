@@ -70,9 +70,11 @@
 	  <p>This page contains several tables. <br/>
 	  It is important for tables to be properly markedup so that screenreaders can associate data cells with their column and row headers.</p>
 	  <hr/>
-	  <h3>No Markup</h3>
-	  <p>This table has no symantic markup to associate headers with data cells</p>
-<table>
+<div id="div1">
+  <h3>Table 1</h3>
+  <p>This table was created using the standard HTML table symantic markup.<br/>
+	  This table has no symantic markup to associate headers with data cells</p>
+  <table border="3" cellspacing=5>
 	  <caption>Table without symantic markup</caption>
 	  <tr>
 	  <th>Category</th>
@@ -96,6 +98,36 @@
 		<td>50,000</td>
 	</tr>
 </table>
+</div> <!-- div1 -->
+<div id="div2">
+<<h3>Table 2</h3>
+  <p>This table was created using the standard HTML table symantic markup.<br/>
+	  This table uses the scope attribute to associate headers and data cells.</p>
+  <table border="3" cellspacing=5>
+	  <caption>Table using the scope attribute</caption>
+	  <tr>
+	  <th scope="col">Category</th>
+	  <th scope="col">1st Quarter</th>
+	  <th scope="col">2nd Quarter</th>
+	  <th scope="col">3rd Quarter</th>
+	  <th scope="col">4th Quarter</th>
+	  </tr>
+	  <tr>
+	  	<th>Sales</th>
+		<td>$100,000</td>
+		<td>$150,000</td>
+		<td>$90,000</td>
+		<td>$100,000</td>
+	</tr>
+	<tr>
+		<th>Expenses</th>
+		<td>$85,000</td>
+		<td>$120,000</td>
+		<td>100,000</td>
+		<td>50,000</td>
+	</tr>
+</table>
+</div> <!-- div2 -->
 
       </div>
       <footer class="oj-web-applayout-footer" role="contentinfo">
