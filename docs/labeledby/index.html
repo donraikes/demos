@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div.hidden {
+position:absolute;
+top:-999px;
+width:1px;
+height:1px;
+overflow:hidden;
+}
+
+span.displaynone,
+img.displaynone
+{
+display: none;
+}
+
+a.button {
+    display: block;
+    width: 115px;
+    height: 25px;
+    background: #4E9CAF;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<script>
+function msg() {
+  var obj = document.getElementById("live");
+  var t = document.createTextNode("test aria-live.");
+  obj.appendChild(t);
+}
+</script>
+
+<body>
+<span id="span" class="displaynone"> This button label is not displayed but in the DOM </span>
+<div id="live" class="hidden" aria-live="polite"></div>
+<h1>Test aria-live read differently accross browsers and aria-labelledby problem in FF when image is hidden</h1>
+
+<p>The button below add a message in aria-live when it is clicked.</p>
+
+<form>
+  <input type="button" value="Click me to test aria live" onclick="msg()"> </br> </br>
+
+  <a role="button" aria-labelledby="span" class="button" tabindex="0"></a> </br> </br>
+
+  <a role="button" aria-labelledby="smiley" class="button" tabindex="0">
+  <img id="smiley" src="smiley.gif" alt="Smiley face" width="42" height="42" class="displaynone"></a> 
+</form>
