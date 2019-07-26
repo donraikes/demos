@@ -1,0 +1,16 @@
+<div id="div4">
+<h4>select-many (Multi-selection)</h4>
+    <oj-label for="multiSelect">Select multiple browsers:</oj-label>
+    <oj-select-many id="multiSelect" value="{{multibrowser}}" style="max-width:20em">
+      <oj-option value="CH">Chrome</oj-option>
+      <oj-option value="FF">FireFox</oj-option>
+      <oj-option value="IE">Internet Explorer</oj-option>
+      <oj-option value="OP">Opera</oj-option>
+      <oj-option value="SA">Safari</oj-option>
+    </oj-select-many>
+
+<oj-label for="multi-browser-results">Current selection:</oj-label>
+	<span id="multi-browser-results">
+	<oj-bind-text value="[[JSON.stringify(multibrowser())]]">"></oj-bind-text>
+</span>
+</div>

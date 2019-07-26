@@ -1,0 +1,114 @@
+<!--
+ Copyright (c) 2014, 2019, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<style>
+  hr.blur {
+    height: 1px;
+    border: none;
+    color: #000;
+    background-color: #000;
+    width: 60%;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 5px 1px black;
+  }
+</style>
+<div class="oj-hybrid-padding">
+<a id="mainContent">
+<h3>
+	Making Selections
+</h3>
+</a>
+  <div id="popup-wrapper">
+    <oj-popup  id="popup1" style="display:none">
+	<p>Typically making a selection is easy. Simply tap on your choice and tada it is done.</p>
+    </oj-popup>
+    </div>
+    <oj-button id="btnpopup" on-oj-action="[[openListener]]">
+  <img src="css/images/cat1.gif"
+  height="50" width="50"
+  alt="Theo the cat">
+  </oj-button>
+  </div>
+  <br/>
+	
+<p>There are a number of different Jet components that allow for making selections. These include buttonsets (radio and toggle buttons), and select lists (comboboxes).</p>
+<p>This page presents simple examples of each of these types of components.</p>
+<hr/>
+<p>Using VoiceOver with buttons is very easy. Simply double tap the desired selection(s) with a single finger to select it.</p>
+<div id="div1">
+  <h4>Radio Buttons</h4>
+<p>This is a typical set of radio buttons where only one button at a time can be selected.</p>
+
+  <oj-label for="buttonset-one" id="buttonset-one-label">Select a Color:</oj-label>
+  <oj-buttonset-one id="buttonset-one" value="{{buttonsetOne}}" aria-label="Select a color:">
+    <oj-option value="blue">blue</oj-option>
+    <oj-option value="red">Red</oj-option>
+    <oj-option value="yellow">Yellow</oj-option>
+   </oj-buttonset-one>
+
+  <br/>
+  <oj-label for="buttonset-one-results">Selected color: </oj-label>
+  <span id="buttonsetone-results"><oj-bind-text value="[[buttonsetOne]]"></oj-bind-text></span>
+  <br/>
+<hr/>
+</div>
+
+<div id="div2">
+<h4>Toggle Buttons (select many)</h4>
+<p>In this example the user can select any number of options.</p>
+<oj-label for="formatset">Select formatting options</oj-label>
+<oj-buttonset-many id="formatset" value="{{formats}}">
+	<oj-option value="bold" aria-label="Select formatting options: bold">Bold</oj-option>
+<oj-option value="italic">Italic</oj-option>
+<oj-option value="underline">Underline</oj-option>
+</oj-buttonset-many>
+<br/>
+<p><a id="formattedText" href="#" :class="[[classes]]">
+<oj-bind-text value="[[formattedText]]"></oj-bind-text>
+</a>
+</div>
+<br/>
+<hr/>
+<p>The Selection components are a little more difficult to use with VoiceOver.</p>
+
+<div id="div3">
+<h4>select-one (ComboBox)</h4>
+    <oj-label for="basicSelect">Select a browser:</oj-label>
+    <oj-select-one id="basicSelect" value="{{browser}}" style="max-width:20em" aria-describedby="select-one-hint">
+      <oj-option value="CH">Chrome</oj-option>
+      <oj-option value="FF">FireFox</oj-option>
+      <oj-option value="IE">Internet Explorer</oj-option>
+      <oj-option value="OP">Opera</oj-option>
+      <oj-option value="SA">Safari</oj-option>
+    </oj-select-one>
+
+<oj-label for="select-one-results">Current selection:</oj-label>
+<span id="select-one-results">
+	<oj-bind-text value="[[browser]]"></oj-bind-text>
+</span>
+<br/>
+<span id="select-one-hint">Use a one-finger double tap to expand the list then flick to select the desired option and a double-tap to finalize the selection</span>
+
+</div>
+<div id="div4">
+<h4>select-many (Multi-selection)</h4>
+    <oj-label for="multiSelect">Select multiple browsers:</oj-label>
+    <oj-select-many id="multiSelect" value="{{multibrowser}}" style="max-width:20em">
+      <oj-option value="CH">Chrome</oj-option>
+      <oj-option value="FF">FireFox</oj-option>
+      <oj-option value="IE">Internet Explorer</oj-option>
+      <oj-option value="OP">Opera</oj-option>
+      <oj-option value="SA">Safari</oj-option>
+    </oj-select-many>
+
+<oj-label for="multi-browser-results">Current selection:</oj-label>
+	<span id="multi-browser-results">
+	<oj-bind-text value="[[JSON.stringify(multibrowser())]]">"></oj-bind-text>
+</span>
+</div>
+   </div>
+</div>
